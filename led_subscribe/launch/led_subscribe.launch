@@ -1,0 +1,9 @@
+<launch>
+	<arg name="pkg_name" value="led_subscribe"/>
+	<arg name="node_name" default="led_subscribe_node"/>
+
+	<!--led_subscribe_node-->
+	<node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+	</node>
+
+</launch>

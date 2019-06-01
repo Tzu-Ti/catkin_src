@@ -1,0 +1,11 @@
+<launch>
+	<arg name="pkg_name" value="mysql"/>
+	<arg name="node_name" default="mysql_node"/>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+
+	<!-- run mysql node -->
+	<node ns="$(arg veh)" name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+	</node>
+
+</launch>
+	

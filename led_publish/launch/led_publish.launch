@@ -1,0 +1,14 @@
+<launch>
+	<arg name="pkg_name" value="led_publish"/>
+	<arg name="node_name" default="led_publish_node"/>
+
+	<!--led_publish_node-->
+	<node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+	</node>
+
+	<!--led_subscribe-->
+	<remap from="led_subscribe_node/data" to="led_publish_node/data"/>
+	<include file="$(find led_subscribe)/launch/led_subscribe.launch">
+	</include>
+
+</launch>

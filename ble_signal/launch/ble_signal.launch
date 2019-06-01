@@ -1,0 +1,21 @@
+<launch>
+	<arg name="pkg_name" value="ble_signal"/>
+	<arg name="node_name" default="ble_signal_node"/>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+	
+	<!-- ble_signal publish -->
+	<remap from="ble_signal_node/signal" to="decision_node/signal"/>
+	<include file="$(find decision)/launch/decision.launch">
+    	</include>
+
+	<!-- ultrasound publish -->
+        <remap from="ultrasound_node/stop" to="decision_node/stop"/>
+	<include file="$(find ultrasound)/launch/ultrasound.launch">
+	</include>
+
+	<!-- publish node -->
+    	<node ns="$(arg veh)" name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+    	</node>
+    
+</launch>
+

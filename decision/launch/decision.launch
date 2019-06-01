@@ -1,0 +1,17 @@
+<launch>
+	<arg name="pkg_name" value="decision"/>
+	<arg name="node_name" default="decision_node"/>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
+	
+	<!-- decision publish -->
+	<remap from="decision_node/move" to="auto_move_node/move"/>
+	<include file="$(find auto_move)/launch/auto_move.launch">
+		<arg name="veh" value="$(arg veh)"/>
+	</include>
+	
+    	<!-- decision_node -->
+    	<node ns="$(arg veh)" name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+    	</node>
+    
+</launch>
+

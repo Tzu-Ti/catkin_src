@@ -1,0 +1,21 @@
+<launch>
+
+	<arg name="pkg_name" value="ex1_subscribe"/>
+
+	<arg name="node_name" default="ex1_subscribe_node"/>
+
+	
+
+    <!-- ex1_subscribe_node -->
+
+    
+
+    <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+
+    </node>
+
+    
+
+</launch>
+
+

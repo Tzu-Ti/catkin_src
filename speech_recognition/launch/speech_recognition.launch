@@ -1,0 +1,11 @@
+<launch>
+	<arg name="pkg_name" value="speech_recognition"/>
+	<arg name="node_name" default="speech_recognition_node"/>
+
+	<node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+	</node>
+
+	<node name="mysql_node" pkg="$(arg pkg_name)" type="mysql_node.py" output="screen">
+	</node>
+
+</launch>

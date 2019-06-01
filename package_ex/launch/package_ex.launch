@@ -1,0 +1,17 @@
+<launch>
+
+	<arg name="pkg_name" value="package_ex"/>
+
+	<arg name="node_name" default="package_ex_node"/>
+
+	
+
+    <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+
+    </node>
+
+    
+
+</launch>
+
+

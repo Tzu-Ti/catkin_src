@@ -1,0 +1,29 @@
+<launch>
+
+	<arg name="pkg_name" value="ex1_publish"/>
+
+	<arg name="node_name" default="ex1_publish_node"/>
+
+	
+
+    <!-- ex1_publish_node -->
+
+    <node name="$(arg node_name)" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen">
+
+    </node>
+
+
+
+    <!-- ex1_subscribe -->
+
+    <remap from="ex1_subscribe_node/password" to="ex1_publish_node/password"/>
+
+    <include file="$(find ex1_subscribe)/launch/ex1_subscribe.launch">
+
+    </include>
+
+    
+
+</launch>
+
+
